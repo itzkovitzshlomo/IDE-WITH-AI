@@ -29,4 +29,3 @@ jobs:
           name: windows-exe-artifact
           path: |
             release/*.exe
-            dist/**/*.exe
