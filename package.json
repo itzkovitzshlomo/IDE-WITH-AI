@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build && electron-builder --win",
+    "build": "vite build && electron-builder --win --publish never",
     "preview": "vite preview",
     "clean": "rm -rf dist release",
     "lint": "tsc --noEmit"
@@ -36,7 +36,7 @@
     "typescript": "^7.0.2",
     "vite-plugin-pwa": "^2.0.0",
     "electron": "^33.0.0",
-    "electron-builder": "^25.0.0"
+    "electron-builder": "^25.1.8"
   },
   "build": {
     "appId": "com.example.app",
