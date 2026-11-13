@@ -40,8 +40,10 @@
   },
   "build": {
     "appId": "com.example.app",
+    "productName": "IDE-WITH-AI",
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "sign": false
     },
     "files": [
       "dist/**/*",
