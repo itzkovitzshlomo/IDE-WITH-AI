@@ -1,26 +1,34 @@
 name: Build and Package EXE
-on: [push]
+
+on:
+  push:
+    branches: [ "main" ]
+
 jobs:
   build-windows:
     runs-on: windows-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
-      - name: Build and Package Executable
-        run: npm run make
-        # לחלופין, אם אתה משתמש ב-pkg או כלי אחר, החלף פה את הפקודה לסקריפט האריזה שלך
+      - name: Build Application
+        run: npm run build
 
-      - name: Upload Artifact (EXE)
+      - name: Archive Production Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: meo-studio-exe
-          path: out/
+          name: windows-exe-artifact
+          path: |
+            dist/
+            build/
+            *.exe
