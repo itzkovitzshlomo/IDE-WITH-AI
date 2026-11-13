@@ -20,7 +20,7 @@ jobs:
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Build Application
+      - name: Build Application and EXE
         run: npm run build
 
       - name: Archive Production Artifacts
@@ -28,6 +28,5 @@ jobs:
         with:
           name: windows-exe-artifact
           path: |
-            dist/
-            build/
-            *.exe
+            release/*.exe
+            dist/**/*.exe
