@@ -1,0 +1,6 @@
+{
+  "name": "MEO Studio — Offline Secure IDE",
+  "description": "Offline-first desktop IDE for C, C++, Rust, and React with local MEO & GGUF Normal-RAM inference, F5 sandboxed debugger, and CWE security scanner.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
