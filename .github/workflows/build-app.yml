@@ -1,8 +1,8 @@
-name: Build MEO Studio App
+name: Build and Package EXE
 on: [push]
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-windows:
+    runs-on: windows-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -15,5 +15,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Build
-        run: npm run build
+      - name: Build and Package Executable
+        run: npm run make
+        # לחלופין, אם אתה משתמש ב-pkg או כלי אחר, החלף פה את הפקודה לסקריפט האריזה שלך
+
+      - name: Upload Artifact (EXE)
+        uses: actions/upload-artifact@v4
+        with:
+          name: meo-studio-exe
+          path: out/
